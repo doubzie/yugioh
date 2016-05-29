@@ -1,24 +1,24 @@
 package gui;
 
 public class GUI {
-	
+
 	private FirstInterface startWindow;
 	private SecondInterface gameWindow;
 	private ThirdInterface endWindow;
 	private PlayerHand handPlayer1;
 	private PlayerHand handPlayer2;
-		
+
 	public GUI() {
-			
+
 		startWindow = new FirstInterface();
 		gameWindow = new SecondInterface();
 		endWindow = new ThirdInterface();
-		
+
 		handPlayer1 = new PlayerHand();
 		handPlayer2 = new PlayerHand();
-			
+
 		startWindow.setVisible(true);
-			
+
 	}
 
 	public FirstInterface getStartWindow() {
@@ -40,6 +40,5 @@ public class GUI {
 	public PlayerHand getHandPlayer2() {
 		return handPlayer2;
 	}
-		
-		
+
 }

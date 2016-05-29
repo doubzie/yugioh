@@ -71,63 +71,83 @@ public class Deck {
 			}
 
 			catch (FileNotFoundException e) {
+
 				if (errorCount == 3) {
 					e.printStackTrace();
 					throw e;
 				}
+
 				errorCount++;
 				System.out.println("File not found");
 				System.out.print("Please enter the correct path: ");
+
 				if (sc.hasNextLine())
 					path = sc.nextLine();
+
 			}
 
 			catch (MissingFieldException e) {
+
 				if (errorCount == 3) {
 					e.printStackTrace();
 					throw e;
 				}
+
 				errorCount++;
 				System.out.println("Missing field");
 				System.out.print("Please enter the correct path: ");
+
 				if (sc.hasNextLine())
 					path = sc.nextLine();
+
 			}
 
 			catch (EmptyFieldException e) {
+
 				if (errorCount == 3) {
 					e.printStackTrace();
 					throw e;
 				}
+
 				errorCount++;
 				System.out.println("Empty field");
 				System.out.print("Please enter the correct path: ");
+
 				if (sc.hasNextLine())
 					path = sc.nextLine();
+
 			}
 
 			catch (UnknownCardTypeException e) {
+
 				if (errorCount == 3) {
 					e.printStackTrace();
 					throw e;
 				}
+
 				errorCount++;
 				System.out.println("Unknown card type");
 				System.out.print("Please enter the correct path: ");
+
 				if (sc.hasNextLine())
 					path = sc.nextLine();
+
 			}
 
 			catch (UnknownSpellCardException e) {
+
 				if (errorCount == 3) {
 					e.printStackTrace();
 					throw e;
 				}
+
 				errorCount++;
 				System.out.println("Unknown spell card");
 				System.out.print("Please enter the correct path: ");
+
 				if (sc.hasNextLine())
 					path = sc.nextLine();
+
 			}
 
 		} while (errorCount <= 3 && !isCorrectPath);
@@ -311,8 +331,6 @@ public class Deck {
 		return deck.remove(0);
 
 	}
-
-	////////////////////////////////////////////////////////////////////
 
 	public ArrayList<Card> getDeck() {
 		return deck;

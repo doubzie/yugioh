@@ -8,17 +8,18 @@ public class MagePower extends SpellCard {
 		super(name, description);
 	}
 
-	public void action(MonsterCard monster){
-		
+	@Override
+	public void action(MonsterCard monster) {
+
 		int numberOfSpellCards = getBoard().getActivePlayer().getField().getSpellArea().size();
-		
-		for (int i = 0; i < numberOfSpellCards ; i++) {
-			
+
+		for (int i = 0; i < numberOfSpellCards; i++) {
+
 			monster.setAttackPoints(monster.getAttackPoints() + 500);
 			monster.setDefensePoints(monster.getDefensePoints() + 500);
-			
+
 		}
-		
+
 	}
-	
+
 }

@@ -7,8 +7,9 @@ public class PotOfGreed extends SpellCard {
 	public PotOfGreed(String name, String description) {
 		super(name, description);
 	}
-	
-	public void action(MonsterCard monster){
+
+	@Override
+	public void action(MonsterCard monster) {
 		getBoard().getActivePlayer().getField().addNCardsToHand(2);
 	}
 

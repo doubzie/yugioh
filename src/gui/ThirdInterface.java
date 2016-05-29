@@ -3,23 +3,24 @@ package gui;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class ThirdInterface extends JFrame {
-	
+
 	private ButtonPlayAgain btnPlayAgain;
 	private ButtonQuitGame btnQuitGame;
 
 	public ThirdInterface() {
-		
+
 		setBounds(500, 200, 800, 501);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		
+
 		btnPlayAgain = new ButtonPlayAgain("Play Again");
 		btnPlayAgain.setToolTipText("Proceed to another game");
 		btnPlayAgain.setBackground(new Color(255, 215, 0));
@@ -28,7 +29,7 @@ public class ThirdInterface extends JFrame {
 		btnPlayAgain.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnPlayAgain);
 		getRootPane().setDefaultButton(btnPlayAgain);
-		
+
 		btnQuitGame = new ButtonQuitGame("Quit Game");
 		btnQuitGame.setToolTipText("Close application");
 		btnQuitGame.setBackground(new Color(255, 215, 0));
@@ -36,34 +37,30 @@ public class ThirdInterface extends JFrame {
 		btnQuitGame.setBounds(547, 369, 137, 36);
 		btnQuitGame.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnQuitGame);
-		
+
 		JLabelWithIcon lblBackground = new JLabelWithIcon("src/resources/EndGameBackground.jpg");
 		lblBackground.setBounds(0, 0, 794, 466);
 		getContentPane().add(lblBackground);
-	
-		
+
 	}
-	
 
 	public ButtonPlayAgain getBtnPlayAgain() {
 		return btnPlayAgain;
 	}
 
-
 	public ButtonQuitGame getBtnQuitGame() {
 		return btnQuitGame;
 	}
-	
-	
+
 	/*
 	 * Label with background class
 	 */
 	class JLabelWithIcon extends JLabel {
-		
-		public JLabelWithIcon(String path){
+
+		public JLabelWithIcon(String path) {
 			super(new ImageIcon(path));
 		}
-		
+
 	}
 
 }

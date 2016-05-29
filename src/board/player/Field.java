@@ -20,8 +20,7 @@ public class Field {
 	private ArrayList<Card> hand;
 	private ArrayList<Card> graveyard;
 	private Deck deck;
-	
-	
+
 	public Field() throws IOException, UnexpectedFormatException {
 		monstersArea = new ArrayList<MonsterCard>(5);
 		spellArea = new ArrayList<SpellCard>(5);
@@ -30,176 +29,178 @@ public class Field {
 		deck = new Deck();
 		phase = Phase.MAIN1;
 	}
-	
-	public void addMonsterToField(MonsterCard monster, Mode m, boolean isHidden){
-		
+
+	public void addMonsterToField(MonsterCard monster, Mode m, boolean isHidden) {
+
 		if (!(monstersArea.size() < 5))
 			throw new NoMonsterSpaceException();
-		else{
-			if(monster.getLocation()== Location.HAND){
+
+		else {
+
+			if (monster.getLocation() == Location.HAND) {
 				monster.setLocation(Location.FIELD);
 				monster.setMode(m);
 				monster.setHidden(isHidden);
 				monstersArea.add(monster);
 				hand.remove(monster);
 			}
+
 		}
-		
+
 	}
-	
-	public void addMonsterToField(MonsterCard monster, Mode m, ArrayList<MonsterCard> sacrifices){
-		
-		if(!(monstersArea.size() < 5))
+
+	public void addMonsterToField(MonsterCard monster, Mode m, ArrayList<MonsterCard> sacrifices) {
+
+		if (!(monstersArea.size() < 5))
 			throw new NoMonsterSpaceException();
-		else{
+		else {
 			int level = monster.getLevel();
-			
-			boolean isHidden = false; //not the attribute
-			if(m == Mode.DEFENSE)
+
+			boolean isHidden = false;
+			if (m == Mode.DEFENSE)
 				isHidden = true;
-			
-			if(level <= 4 && sacrifices.size() == 0){
-				addMonsterToField(monster,m,isHidden);
-			}
-			else{
-				if(level <= 6 && level > 4 && sacrifices.size() == 1){
+
+			if (level <= 4 && sacrifices.size() == 0) {
+				addMonsterToField(monster, m, isHidden);
+			} else {
+				if (level <= 6 && level > 4 && sacrifices.size() == 1) {
 					removeMonsterToGraveyard(sacrifices);
-					addMonsterToField(monster,m,isHidden);
-				}
-				
-				else{
-					if(level <= 8 && level > 6 && sacrifices.size() == 2){ //Add 1st check in Nabila's code
+					addMonsterToField(monster, m, isHidden);
+				} else {
+					if (level <= 8 && level > 6 && sacrifices.size() == 2) {
 						removeMonsterToGraveyard(sacrifices);
-						addMonsterToField(monster,m,isHidden);
+						addMonsterToField(monster, m, isHidden);
 					}
 				}
-				
+
 			}
 		}
-		
+
 	}
-	
-	public void removeMonsterToGraveyard(MonsterCard monster){
-		
-		if (monster.getLocation()==Location.FIELD){
+
+	public void removeMonsterToGraveyard(MonsterCard monster) {
+
+		if (monster.getLocation() == Location.FIELD) {
 			monster.setLocation(Location.GRAVEYARD);
 			monster.setHasAttacked(false);
 			monster.setModeSwitched(false);
 			monstersArea.remove(monster);
 			graveyard.add(monster);
 		}
-		
+
 	}
-	
-	public void removeMonsterToGraveyard(ArrayList<MonsterCard> monsters){
-		
-		while(!monsters.isEmpty()) 
+
+	public void removeMonsterToGraveyard(ArrayList<MonsterCard> monsters) {
+
+		while (!monsters.isEmpty())
 			removeMonsterToGraveyard(monsters.remove(0));
-		
+
 	}
-	
-	public void addSpellToField(SpellCard action, MonsterCard monster, boolean hidden){
-		
+
+	public void addSpellToField(SpellCard action, MonsterCard monster, boolean hidden) {
+
 		if (!(spellArea.size() < 5))
 			throw new NoSpellSpaceException();
-		
-		else{
-			
-			if(action.getLocation() == Location.HAND){
-				
+
+		else {
+
+			if (action.getLocation() == Location.HAND) {
+
 				hand.remove(action);
 				spellArea.add(action);
 				action.setLocation(Location.FIELD);
 				action.setHidden(hidden);
-				
-				if(!hidden)
+
+				if (!hidden)
 					activateSetSpell(action, monster);
-				
+
 			}
 		}
-		
+
 	}
-	
-	public void activateSetSpell(SpellCard action, MonsterCard monster){
-		
-		if (action.getLocation() == Location.FIELD){
-			action.setHidden(false); 
+
+	public void activateSetSpell(SpellCard action, MonsterCard monster) {
+
+		if (action.getLocation() == Location.FIELD) {
+			action.setHidden(false);
 			action.action(monster);
 			removeSpellToGraveyard(action);
 		}
-		
-	}
-	
-	public void removeSpellToGraveyard(SpellCard spell){
 
-		if (spell.getLocation() == Location.FIELD){
-		spell.setLocation(Location.GRAVEYARD);
-		spellArea.remove(spell);
-		graveyard.add(spell);
-		
+	}
+
+	public void removeSpellToGraveyard(SpellCard spell) {
+
+		if (spell.getLocation() == Location.FIELD) {
+			spell.setLocation(Location.GRAVEYARD);
+			spellArea.remove(spell);
+			graveyard.add(spell);
+
 		}
 	}
-	
-	public void removeSpellToGraveyard(ArrayList<SpellCard> spells){
+
+	public void removeSpellToGraveyard(ArrayList<SpellCard> spells) {
 		while (!spells.isEmpty())
 			removeSpellToGraveyard(spells.remove(0));
 	}
-	
-	public void addCardToHand(){
-		
+
+	public void addCardToHand() {
+
 		Card tmp = deck.drawOneCard();
-		
-		if(tmp == null)
+
+		if (tmp == null)
 			Card.getBoard().setWinner(Card.getBoard().getOpponentPlayer());
-		
-		else{
+
+		else {
 			hand.add(tmp);
 			tmp.setLocation(Location.HAND);
 		}
-		
+
 	}
-	
-	public void addNCardsToHand(int n){
-		for(int i = 0; i < n; i++) 
+
+	public void addNCardsToHand(int n) {
+		for (int i = 0; i < n; i++)
 			addCardToHand();
 	}
-	
-	public void removeCardToGraveyard(Card card){
+
+	public void removeCardToGraveyard(Card card) {
 		card.setLocation(Location.GRAVEYARD);
 		hand.remove(card);
 		graveyard.add(card);
-		
+
 	}
-	
-	public void removeCardToGraveyard(ArrayList<Card> cards){
-		while(!cards.isEmpty()) 
+
+	public void removeCardToGraveyard(ArrayList<Card> cards) {
+		while (!cards.isEmpty())
 			removeCardToGraveyard(cards.remove(0));
 	}
-	
-	
+
 	public Phase getPhase() {
 		return phase;
 	}
+
 	public ArrayList<MonsterCard> getMonstersArea() {
 		return monstersArea;
 	}
+
 	public ArrayList<SpellCard> getSpellArea() {
 		return spellArea;
 	}
+
 	public ArrayList<Card> getHand() {
 		return hand;
 	}
+
 	public ArrayList<Card> getGraveyard() {
 		return graveyard;
 	}
+
 	public void setPhase(Phase phase) {
 		this.phase = phase;
 	}
+
 	public Deck getDeck() {
 		return deck;
 	}
 
-	
-		
 }
-	
