@@ -130,14 +130,14 @@ public class SecondInterface extends JFrame {
 		panelPlayer1.add(lblPlayer1LifePoints);
 
 		lblPlayer1Phase = new JLabel("MAIN1");
-		lblPlayer1Phase.setFont(new Font("Agency FB", Font.BOLD, 45));
+		lblPlayer1Phase.setFont(new Font("Agency FB", Font.BOLD, 35));
 		lblPlayer1Phase.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlayer1Phase.setBounds(1083, 249, 152, 41);
 		panelPlayer1.add(lblPlayer1Phase);
 
 		btnPlayer1NextPhase = new ButtonNextPhase("Next Phase");
 		btnPlayer1NextPhase.setBackground(new Color(169, 169, 169));
-		btnPlayer1NextPhase.setFont(new Font("Agency FB", Font.BOLD, 35));
+		btnPlayer1NextPhase.setFont(new Font("Agency FB", Font.BOLD, 20));
 		btnPlayer1NextPhase.setBounds(1073, 303, 183, 78);
 		panelPlayer1.add(btnPlayer1NextPhase);
 
@@ -147,7 +147,7 @@ public class SecondInterface extends JFrame {
 
 		btnPlayer1EndTurn = new ButtonEndTurn("End Turn");
 		btnPlayer1EndTurn.setBackground(new Color(169, 169, 169));
-		btnPlayer1EndTurn.setFont(new Font("Agency FB", Font.BOLD, 35));
+		btnPlayer1EndTurn.setFont(new Font("Agency FB", Font.BOLD, 20));
 		btnPlayer1EndTurn.setBounds(1073, 394, 183, 78);
 		panelPlayer1.add(btnPlayer1EndTurn);
 
@@ -240,14 +240,14 @@ public class SecondInterface extends JFrame {
 		panelPlayer2.add(lblPlayer2LifePoints);
 
 		lblPlayer2Phase = new JLabel("MAIN1");
-		lblPlayer2Phase.setFont(new Font("Agency FB", Font.BOLD, 45));
+		lblPlayer2Phase.setFont(new Font("Agency FB", Font.BOLD, 35));
 		lblPlayer2Phase.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlayer2Phase.setBounds(1080, 208, 152, 41);
 		panelPlayer2.add(lblPlayer2Phase);
 
 		btnPlayer2NextPhase = new ButtonNextPhase("Next Phase");
 		btnPlayer2NextPhase.setBackground(new Color(169, 169, 169));
-		btnPlayer2NextPhase.setFont(new Font("Agency FB", Font.BOLD, 35));
+		btnPlayer2NextPhase.setFont(new Font("Agency FB", Font.BOLD, 20));
 		btnPlayer2NextPhase.setBounds(1067, 117, 183, 78);
 		panelPlayer2.add(btnPlayer2NextPhase);
 
@@ -257,7 +257,7 @@ public class SecondInterface extends JFrame {
 
 		btnPlayer2EndTurn = new ButtonEndTurn("End Turn");
 		btnPlayer2EndTurn.setBackground(new Color(169, 169, 169));
-		btnPlayer2EndTurn.setFont(new Font("Agency FB", Font.BOLD, 35));
+		btnPlayer2EndTurn.setFont(new Font("Agency FB", Font.BOLD, 20));
 		btnPlayer2EndTurn.setBounds(1067, 23, 183, 78);
 		panelPlayer2.add(btnPlayer2EndTurn);
 

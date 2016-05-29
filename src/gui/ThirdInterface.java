@@ -16,7 +16,7 @@ public class ThirdInterface extends JFrame {
 
 	public ThirdInterface() {
 
-		setBounds(500, 200, 800, 501);
+		setBounds(500, 200, 790, 490);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -24,7 +24,7 @@ public class ThirdInterface extends JFrame {
 		btnPlayAgain = new ButtonPlayAgain("Play Again");
 		btnPlayAgain.setToolTipText("Proceed to another game");
 		btnPlayAgain.setBackground(new Color(255, 215, 0));
-		btnPlayAgain.setFont(new Font("Agency FB", Font.BOLD, 27));
+		btnPlayAgain.setFont(new Font("Agency FB", Font.BOLD, 17));
 		btnPlayAgain.setBounds(116, 369, 137, 36);
 		btnPlayAgain.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnPlayAgain);
@@ -33,7 +33,7 @@ public class ThirdInterface extends JFrame {
 		btnQuitGame = new ButtonQuitGame("Quit Game");
 		btnQuitGame.setToolTipText("Close application");
 		btnQuitGame.setBackground(new Color(255, 215, 0));
-		btnQuitGame.setFont(new Font("Agency FB", Font.BOLD, 27));
+		btnQuitGame.setFont(new Font("Agency FB", Font.BOLD, 17));
 		btnQuitGame.setBounds(547, 369, 137, 36);
 		btnQuitGame.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnQuitGame);

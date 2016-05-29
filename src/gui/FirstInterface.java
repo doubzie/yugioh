@@ -26,7 +26,7 @@ public class FirstInterface extends JFrame {
 	public FirstInterface() {
 
 		setTitle("Yu-Gi-Oh!");
-		setBounds(500, 200, 646, 780);
+		setBounds(500, 200, 630, 770);
 		setLocation(610, 150);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,17 +42,17 @@ public class FirstInterface extends JFrame {
 
 		JLabel lblItsTimeToDuel = new JLabel("IT'S TIME TO DUEL!");
 		lblItsTimeToDuel.setFont(new Font("Agency FB", Font.BOLD, 27));
-		lblItsTimeToDuel.setBounds(234, 37, 159, 28);
+		lblItsTimeToDuel.setBounds(160, 20, 300, 28);
 		downHalfPanel.add(lblItsTimeToDuel);
 
 		JLabel lblPlayer1Name = new JLabel("Player 1");
 		lblPlayer1Name.setFont(new Font("Agency FB", Font.BOLD, 27));
-		lblPlayer1Name.setBounds(101, 79, 80, 43);
+		lblPlayer1Name.setBounds(101, 79, 200, 43);
 		downHalfPanel.add(lblPlayer1Name);
 
 		JLabel lblPlayer2Name = new JLabel("Player 2");
 		lblPlayer2Name.setFont(new Font("Agency FB", Font.BOLD, 27));
-		lblPlayer2Name.setBounds(443, 79, 80, 43);
+		lblPlayer2Name.setBounds(400, 79, 200, 43);
 		downHalfPanel.add(lblPlayer2Name);
 
 		txtFldPlayer1 = new JTextField();
@@ -71,7 +71,7 @@ public class FirstInterface extends JFrame {
 		btnDuelMode.setToolTipText("Proceed to game");
 		btnDuelMode.setBackground(new Color(255, 215, 0));
 		btnDuelMode.setFont(new Font("Agency FB", Font.BOLD, 27));
-		btnDuelMode.setBounds(249, 234, 137, 36);
+		btnDuelMode.setBounds(210, 234, 200, 36);
 		downHalfPanel.add(btnDuelMode);
 		getRootPane().setDefaultButton(btnDuelMode);
 
@@ -79,7 +79,7 @@ public class FirstInterface extends JFrame {
 		btnQuitGame.setToolTipText("Close application");
 		btnQuitGame.setBackground(new Color(255, 215, 0));
 		btnQuitGame.setFont(new Font("Agency FB", Font.BOLD, 27));
-		btnQuitGame.setBounds(249, 283, 137, 36);
+		btnQuitGame.setBounds(210, 283, 200, 36);
 		downHalfPanel.add(btnQuitGame);
 
 		JSeparator separator = new JSeparator();
