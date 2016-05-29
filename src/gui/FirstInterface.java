@@ -4,6 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class FirstInterface extends JFrame{
 	
 	private JTextField txtFldPlayer1;
@@ -124,8 +125,6 @@ public class FirstInterface extends JFrame{
 		  protected void paintComponent(Graphics g) {
 			  
 		    super.paintComponent(g);
-		    int imwidth = bgimage.getWidth(null);
-		    int imheight = bgimage.getHeight(null);
 		    g.drawImage(bgimage, 1, 1, null);
 		    
 		  }

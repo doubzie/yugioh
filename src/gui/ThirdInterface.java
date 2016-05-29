@@ -2,17 +2,12 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.EventQueue;
 import java.awt.Font;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
-import gui.SecondInterface.JLabelWithIcon;
-
+@SuppressWarnings("serial")
 public class ThirdInterface extends JFrame {
 	
 	private ButtonPlayAgain btnPlayAgain;

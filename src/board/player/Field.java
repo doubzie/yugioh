@@ -23,10 +23,10 @@ public class Field {
 	
 	
 	public Field() throws IOException, UnexpectedFormatException {
-		monstersArea = new ArrayList(5);
-		spellArea = new ArrayList(5);
-		hand = new ArrayList();
-		graveyard = new ArrayList();
+		monstersArea = new ArrayList<MonsterCard>(5);
+		spellArea = new ArrayList<SpellCard>(5);
+		hand = new ArrayList<Card>();
+		graveyard = new ArrayList<Card>();
 		deck = new Deck();
 		phase = Phase.MAIN1;
 	}

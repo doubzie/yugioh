@@ -1,7 +1,6 @@
 package cards.spells;
 
 import cards.Card;
-import cards.Location;
 import cards.MonsterCard;
 
 public abstract class SpellCard extends Card {

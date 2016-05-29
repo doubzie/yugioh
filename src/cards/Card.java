@@ -1,10 +1,6 @@
 package cards;
 
-import java.io.IOException;
-
 import board.Board;
-import board.player.Player;
-import cards.spells.MonsterReborn;
 
 public abstract class Card {
 	

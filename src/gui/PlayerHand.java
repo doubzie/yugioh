@@ -1,27 +1,15 @@
 package gui;
 
 import java.awt.Cursor;
-import java.awt.EventQueue;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import java.awt.GridLayout;
 import java.util.ArrayList;
-
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-
-import java.awt.Color;
-
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
-
 import java.awt.Font;
 
+@SuppressWarnings("serial")
 public class PlayerHand extends JFrame {
 	private JButton btnSummonMonster;
 	private JButton btnSetMonster;

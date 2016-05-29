@@ -243,7 +243,7 @@ public class Player implements Duelist{
 		
 		if(Card.getBoard().getWinner() == null){
 		
-			ArrayList list = this.field.getDeck().drawNCards(n);
+			ArrayList<Card> list = this.field.getDeck().drawNCards(n);
 			if (list.size() < n){
 				
 				if(this == Card.getBoard().getActivePlayer())

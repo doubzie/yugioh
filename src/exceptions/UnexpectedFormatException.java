@@ -1,18 +1,19 @@
 package exceptions;
 
+@SuppressWarnings("serial")
 public class UnexpectedFormatException extends Exception {
-	
-		private String sourceFile;
-		private int sourceLine;
-		
+
+	private String sourceFile;
+	private int sourceLine;
+
 	public UnexpectedFormatException() {
-	
+
 	}
 
 	public UnexpectedFormatException(String arg0) {
 		super(arg0);
 	}
-	
+
 	public UnexpectedFormatException(String sourceFile, int sourceLine) {
 		this.sourceFile = sourceFile;
 		this.sourceLine = sourceLine;
@@ -34,6 +35,5 @@ public class UnexpectedFormatException extends Exception {
 	public void setSourceLine(int sourceLine) {
 		this.sourceLine = sourceLine;
 	}
-	
 
 }

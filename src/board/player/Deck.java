@@ -36,6 +36,8 @@ public class Deck {
 	private static String monstersPath = "src/resources/Database-Monsters.csv";
 	private static String spellsPath = "src/resources/Database-Spells.csv";
 	private boolean hasMonstersLoaded = false;
+	private Scanner sc;
+	private static BufferedReader br;
 
 	public Deck() throws IOException, UnexpectedFormatException {
 
@@ -48,7 +50,7 @@ public class Deck {
 			isLoaded = true;
 		}
 
-		deck = new ArrayList(20);
+		deck = new ArrayList<Card>(20);
 		buildDeck(monsters, spells);
 		shuffleDeck();
 
@@ -56,7 +58,7 @@ public class Deck {
 
 	public ArrayList<Card> tryLoadCardsFromFile(String path) throws IOException, UnexpectedFormatException {
 
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		int errorCount = 0;
 		boolean isCorrectPath = false;
 		ArrayList<Card> cardsArray = null;
@@ -136,10 +138,10 @@ public class Deck {
 
 	public static ArrayList<String> readFile(String path) throws IOException {
 
-		ArrayList<String> cardsStringArray = new ArrayList();
+		ArrayList<String> cardsStringArray = new ArrayList<String>();
 		String currentLine = "";
 		FileReader fileReader = new FileReader(path);
-		BufferedReader br = new BufferedReader(fileReader);
+		br = new BufferedReader(fileReader);
 
 		while ((currentLine = br.readLine()) != null)
 			cardsStringArray.add(currentLine);
@@ -151,7 +153,7 @@ public class Deck {
 	public ArrayList<Card> loadCardsFromFile(String path) throws IOException, UnexpectedFormatException {
 
 		ArrayList<String> cardsStringArray = readFile(path);
-		ArrayList<Card> cardsArray = new ArrayList();
+		ArrayList<Card> cardsArray = new ArrayList<Card>();
 
 		for (int i = 0; i < cardsStringArray.size(); i++) {
 
@@ -287,7 +289,7 @@ public class Deck {
 
 	public ArrayList<Card> drawNCards(int n) {
 
-		ArrayList<Card> drawnCards = new ArrayList();
+		ArrayList<Card> drawnCards = new ArrayList<Card>();
 
 		for (int i = 0; i < n; i++) {
 			Card c = drawOneCard();

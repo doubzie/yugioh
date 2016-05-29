@@ -1,7 +1,5 @@
 package cards;
 
-import board.player.*;
-
 public class MonsterCard extends Card {
 	
 	private int level;

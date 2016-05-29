@@ -4,8 +4,9 @@ import java.awt.Cursor;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class ButtonQuitGame extends JButton {
-	
+
 	public ButtonQuitGame() {
 		super();
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -15,5 +16,5 @@ public class ButtonQuitGame extends JButton {
 		super(string);
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
-	
+
 }

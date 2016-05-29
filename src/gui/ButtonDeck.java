@@ -1,10 +1,9 @@
 package gui;
 
 import java.awt.Cursor;
-
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class ButtonDeck extends JButton {
 	
 	public ButtonDeck() {

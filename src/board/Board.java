@@ -1,13 +1,8 @@
 package board;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import board.player.Phase;
 import board.player.Player;
 import cards.Card;
-import cards.Location;
-import cards.MonsterCard;
 
 public class Board {
 	
@@ -84,6 +79,7 @@ public class Board {
 	
 	public void endGame (){
 		
+		@SuppressWarnings("unused")
 		Player loser;
 		if (winner == activePlayer)
 			loser = opponentPlayer;

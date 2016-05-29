@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import java.util.ArrayList;
 
-
+@SuppressWarnings("serial")
 public class SecondInterface extends JFrame {
 
 	private JPanel panelPlayer1;
