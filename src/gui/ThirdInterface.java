@@ -42,7 +42,7 @@ public class ThirdInterface extends JFrame {
 		btnQuitGame.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnQuitGame);
 		
-		JLabelWithIcon lblBackground = new JLabelWithIcon("EndGameBackground.jpg");
+		JLabelWithIcon lblBackground = new JLabelWithIcon("src/resources/EndGameBackground.jpg");
 		lblBackground.setBounds(0, 0, 794, 466);
 		getContentPane().add(lblBackground);
 	

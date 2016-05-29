@@ -103,7 +103,7 @@ public class SecondInterface extends JFrame {
 			panelPlayer1Field.add(spellButton);
 		}
 		
-		JLabelWithIcon imageLabel = new JLabelWithIcon("YugiProfile.png");
+		JLabelWithIcon imageLabel = new JLabelWithIcon("src/resources/YugiProfile.png");
 		imageLabel.setBounds(0,  178, 322, 340);
 		panelPlayer1.add(imageLabel);
 		
@@ -131,7 +131,7 @@ public class SecondInterface extends JFrame {
 		btnPlayer1NextPhase.setBounds(1073, 303, 183, 78);
 		panelPlayer1.add(btnPlayer1NextPhase);
 	
-		lblPlayer1YourTurn = new JLabelWithIcon("YourTurn.jpg");
+		lblPlayer1YourTurn = new JLabelWithIcon("src/resources/YourTurn.jpg");
 		lblPlayer1YourTurn.setBounds(1083, 20, 157, 40);
 		panelPlayer1.add(lblPlayer1YourTurn);
 		
@@ -155,7 +155,7 @@ public class SecondInterface extends JFrame {
 		panelPlayer1.add(panelPlayer1DeckAndGraveyard);
 		
 		btnPlayer1Graveyard = new JButton();
-		btnPlayer1Graveyard.setIcon(new ImageIcon("CardBack.png"));
+		btnPlayer1Graveyard.setIcon(new ImageIcon("src/resources/CardBack.png"));
 		btnPlayer1Graveyard.setOpaque(false);
 		btnPlayer1Graveyard.setContentAreaFilled(false);
 		btnPlayer1Graveyard.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -165,7 +165,7 @@ public class SecondInterface extends JFrame {
 		btnPlayer1Deck.setToolTipText("Player 1 Deck");  
 		btnPlayer1Deck.setFont(new Font("Tahoma", Font.PLAIN, 0));
 		btnPlayer1Deck.setForeground(Color.BLACK);
-		btnPlayer1Deck.setIcon(new ImageIcon("CardBack.png"));
+		btnPlayer1Deck.setIcon(new ImageIcon("src/resources/CardBack.png"));
 		btnPlayer1Deck.setOpaque(false);
 		btnPlayer1Deck.setContentAreaFilled(false);
 		panelPlayer1DeckAndGraveyard.add(btnPlayer1Deck);
@@ -215,7 +215,7 @@ public class SecondInterface extends JFrame {
 			panelPlayer2Field.add(monsterButton);
 		}
 		
-		JLabelWithIcon kaibaProfile = new JLabelWithIcon("KaibaProfile.png");
+		JLabelWithIcon kaibaProfile = new JLabelWithIcon("src/resources/KaibaProfile.png");
 		kaibaProfile.setBounds(0, 0, 319, 307);
 		panelPlayer2.add(kaibaProfile);
 		
@@ -243,7 +243,7 @@ public class SecondInterface extends JFrame {
 		btnPlayer2NextPhase.setBounds(1067, 117, 183, 78);
 		panelPlayer2.add(btnPlayer2NextPhase);
 	
-		lblPlayer2YourTurn = new JLabel(new ImageIcon("YourTurn.jpg"));
+		lblPlayer2YourTurn = new JLabel(new ImageIcon("src/resources/YourTurn.jpg"));
 		lblPlayer2YourTurn.setBounds(1083, 427, 157, 40);
 		panelPlayer2.add(lblPlayer2YourTurn);
 		
@@ -275,13 +275,13 @@ public class SecondInterface extends JFrame {
 		btnPlayer2Deck.setToolTipText("Player 2 Deck");  
 		btnPlayer2Deck.setForeground(Color.BLACK);
 		btnPlayer2Deck.setFont(new Font("Tahoma", Font.PLAIN, 0));
-		btnPlayer2Deck.setIcon(new ImageIcon("CardBack.png"));
+		btnPlayer2Deck.setIcon(new ImageIcon("src/resources/CardBack.png"));
 		btnPlayer2Deck.setOpaque(false);
 		btnPlayer2Deck.setContentAreaFilled(false);
 		panelPlayer2DeckAndGraveyard.add(btnPlayer2Deck);
 		
 		btnPlayer2Graveyard = new JButton();
-		btnPlayer2Graveyard.setIcon(new ImageIcon("CardBack.png"));
+		btnPlayer2Graveyard.setIcon(new ImageIcon("src/resources/CardBack.png"));
 		btnPlayer2Graveyard.setOpaque(false);
 		btnPlayer2Graveyard.setContentAreaFilled(false);
 		btnPlayer2Graveyard.setCursor(new Cursor(Cursor.HAND_CURSOR));

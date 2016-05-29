@@ -110,7 +110,7 @@ public class FirstInterface extends JFrame{
 		  ContentPanel() {
 			  
 		    MediaTracker mt = new MediaTracker(this);
-		    bgimage = Toolkit.getDefaultToolkit().getImage("YugiBackground.jpg");
+		    bgimage = Toolkit.getDefaultToolkit().getImage("src/resources/YugiBackground.jpg");
 		    mt.addImage(bgimage, 0);
 		    try {
 		      mt.waitForAll();
