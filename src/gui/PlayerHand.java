@@ -40,14 +40,14 @@ public class PlayerHand extends JFrame {
 
 		btnSummonMonster = new JButton("Summon Monster");
 		btnSummonMonster.setContentAreaFilled(false);
-		btnSummonMonster.setFont(new Font("Agency FB", Font.BOLD, 22));
+		btnSummonMonster.setFont(new Font("Agency FB", Font.BOLD, 12));
 		btnSummonMonster.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnSummonMonster.setBounds(54, 35, 159, 44);
 		panelMonsterControl.add(btnSummonMonster);
 
 		btnSetMonster = new JButton("Set Monster");
 		btnSetMonster.setContentAreaFilled(false);
-		btnSetMonster.setFont(new Font("Agency FB", Font.BOLD, 22));
+		btnSetMonster.setFont(new Font("Agency FB", Font.BOLD, 12));
 		btnSetMonster.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnSetMonster.setBounds(54, 92, 159, 44);
 		panelMonsterControl.add(btnSetMonster);
@@ -60,13 +60,13 @@ public class PlayerHand extends JFrame {
 
 		btnActivateSpell = new JButton("Activate Spell");
 		btnActivateSpell.setContentAreaFilled(false);
-		btnActivateSpell.setFont(new Font("Agency FB", Font.BOLD, 22));
+		btnActivateSpell.setFont(new Font("Agency FB", Font.BOLD, 12));
 		btnActivateSpell.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnActivateSpell.setBounds(54, 35, 159, 44);
 		panelSpellControl.add(btnActivateSpell);
 
 		btnSetSpell = new JButton("Set Spell");
-		btnSetSpell.setFont(new Font("Agency FB", Font.BOLD, 22));
+		btnSetSpell.setFont(new Font("Agency FB", Font.BOLD, 12));
 		btnSetSpell.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnSetSpell.setContentAreaFilled(false);
 		btnSetSpell.setBounds(54, 92, 159, 44);
