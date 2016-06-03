@@ -3,7 +3,9 @@ package gui;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,7 +16,7 @@ public class ThirdInterface extends JFrame {
 	private ButtonPlayAgain btnPlayAgain;
 	private ButtonQuitGame btnQuitGame;
 
-	public ThirdInterface() {
+	public ThirdInterface() throws IOException {
 
 		setBounds(500, 200, 790, 460);
 		setResizable(false);
@@ -38,7 +40,7 @@ public class ThirdInterface extends JFrame {
 		btnQuitGame.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnQuitGame);
 
-		JLabelWithIcon lblBackground = new JLabelWithIcon("src/resources/EndGameBackground.jpg");
+		JLabelWithIcon lblBackground = new JLabelWithIcon("/resources/EndGameBackground.jpg");
 		lblBackground.setBounds(0, 0, 794, 466);
 		getContentPane().add(lblBackground);
 
@@ -57,8 +59,8 @@ public class ThirdInterface extends JFrame {
 	 */
 	class JLabelWithIcon extends JLabel {
 
-		public JLabelWithIcon(String path) {
-			super(new ImageIcon(path));
+		public JLabelWithIcon(String path) throws IOException {
+			super(new ImageIcon(ImageIO.read(SecondInterface.class.getResourceAsStream(path))));
 		}
 
 	}

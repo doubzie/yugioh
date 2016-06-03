@@ -1,5 +1,7 @@
 package gui;
 
+import java.io.IOException;
+
 public class GUI {
 
 	private FirstInterface startWindow;
@@ -8,7 +10,7 @@ public class GUI {
 	private PlayerHand handPlayer1;
 	private PlayerHand handPlayer2;
 
-	public GUI() {
+	public GUI() throws IOException {
 
 		startWindow = new FirstInterface();
 		gameWindow = new SecondInterface();

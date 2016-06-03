@@ -7,6 +7,7 @@ import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -38,6 +39,7 @@ import gui.ButtonQuitGame;
 import gui.ButtonSpell;
 import gui.GUI;
 import gui.PlayerHand;
+import gui.SecondInterface;
 
 public class Controller implements ActionListener, WindowListener {
 
@@ -1374,14 +1376,14 @@ public class Controller implements ActionListener, WindowListener {
 					.setValue(Integer.parseInt(gui.getGameWindow().getLblPlayer1LifePoints().getText()));
 
 			if (board.getActivePlayer().getField().getGraveyard().size() == 0)
-				gui.getGameWindow().getBtnPlayer1Graveyard().setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getBtnPlayer1Graveyard().setIcon(getImageIcon("/resources/CardBack.png"));
 
 			else {
 
 				Card card = board.getActivePlayer().getField().getGraveyard()
 						.get(board.getActivePlayer().getField().getGraveyard().size() - 1);
 				gui.getGameWindow().getBtnPlayer1Graveyard()
-						.setIcon(new ImageIcon("src/resources/" + card.getName() + ".png"));
+						.setIcon(getImageIcon("resources/" + card.getName() + ".png"));
 
 				String text = "";
 
@@ -1396,14 +1398,14 @@ public class Controller implements ActionListener, WindowListener {
 			}
 
 			if (board.getOpponentPlayer().getField().getGraveyard().size() == 0)
-				gui.getGameWindow().getBtnPlayer2Graveyard().setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getBtnPlayer2Graveyard().setIcon(getImageIcon("/resources/CardBack.png"));
 
 			else {
 
 				Card card = board.getOpponentPlayer().getField().getGraveyard()
 						.get(board.getOpponentPlayer().getField().getGraveyard().size() - 1);
 				gui.getGameWindow().getBtnPlayer2Graveyard()
-						.setIcon(new ImageIcon("src/resources/" + card.getName() + ".png"));
+						.setIcon(getImageIcon("/resources/" + card.getName() + ".png"));
 
 				String text = "";
 
@@ -1431,11 +1433,11 @@ public class Controller implements ActionListener, WindowListener {
 
 				if (card.getMode() == Mode.DEFENSE)
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/CardBack.png"));
+							.setIcon(getImageIcon("/resources/CardBack.png"));
 
 				else
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/" + cardName + ".png"));
+							.setIcon(getImageIcon("/resources/" + cardName + ".png"));
 
 				gui.getGameWindow().getArrayPlayer1Monsters().get(i).setEnabled(true);
 				text = card.toString2();
@@ -1458,7 +1460,7 @@ public class Controller implements ActionListener, WindowListener {
 				if (card.getMode() == Mode.DEFENSE) {
 
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/CardBack.png"));
+							.setIcon(getImageIcon("/resources/CardBack.png"));
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i).setEnabled(true);
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i).setToolTipText("" + card.getMode());
 
@@ -1467,7 +1469,7 @@ public class Controller implements ActionListener, WindowListener {
 				else {
 
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/" + cardName + ".png"));
+							.setIcon(getImageIcon("/resources/" + cardName + ".png"));
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i).setEnabled(true);
 					text = card.toString2();
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i)
@@ -1484,7 +1486,7 @@ public class Controller implements ActionListener, WindowListener {
 
 			for (int i = 0; i < board.getActivePlayer().getField().getSpellArea().size(); i++) {
 
-				gui.getGameWindow().getArrayPlayer1Spells().get(i).setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getArrayPlayer1Spells().get(i).setIcon(getImageIcon("/resources/CardBack.png"));
 				gui.getGameWindow().getArrayPlayer1Spells().get(i).setEnabled(true);
 
 				String text = "";
@@ -1503,7 +1505,7 @@ public class Controller implements ActionListener, WindowListener {
 
 			for (int i = 0; i < board.getOpponentPlayer().getField().getSpellArea().size(); i++) {
 
-				gui.getGameWindow().getArrayPlayer2Spells().get(i).setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getArrayPlayer2Spells().get(i).setIcon(getImageIcon("/resources/CardBack.png"));
 				gui.getGameWindow().getArrayPlayer2Spells().get(i).setEnabled(true);
 
 				String text = "";
@@ -1530,14 +1532,14 @@ public class Controller implements ActionListener, WindowListener {
 					.setValue(Integer.parseInt(gui.getGameWindow().getLblPlayer1LifePoints().getText()));
 
 			if (board.getActivePlayer().getField().getGraveyard().size() == 0)
-				gui.getGameWindow().getBtnPlayer2Graveyard().setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getBtnPlayer2Graveyard().setIcon(getImageIcon("/resources/CardBack.png"));
 
 			else {
 
 				Card card = board.getActivePlayer().getField().getGraveyard()
 						.get(board.getActivePlayer().getField().getGraveyard().size() - 1);
 				gui.getGameWindow().getBtnPlayer2Graveyard()
-						.setIcon(new ImageIcon("src/resources/" + card.getName() + ".png"));
+						.setIcon(getImageIcon("/resources/" + card.getName() + ".png"));
 
 				String text = "";
 				if (card instanceof MonsterCard)
@@ -1551,14 +1553,14 @@ public class Controller implements ActionListener, WindowListener {
 			}
 
 			if (board.getOpponentPlayer().getField().getGraveyard().size() == 0)
-				gui.getGameWindow().getBtnPlayer1Graveyard().setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getBtnPlayer1Graveyard().setIcon(getImageIcon("/resources/CardBack.png"));
 
 			else {
 
 				Card card = board.getOpponentPlayer().getField().getGraveyard()
 						.get(board.getOpponentPlayer().getField().getGraveyard().size() - 1);
 				gui.getGameWindow().getBtnPlayer1Graveyard()
-						.setIcon(new ImageIcon("src/resources/" + card.getName() + ".png"));
+						.setIcon(getImageIcon("/resources/" + card.getName() + ".png"));
 
 				String text = "";
 
@@ -1585,11 +1587,11 @@ public class Controller implements ActionListener, WindowListener {
 
 				if (card.getMode() == Mode.DEFENSE)
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/CardBack.png"));
+							.setIcon(getImageIcon("/resources/CardBack.png"));
 
 				else
 					gui.getGameWindow().getArrayPlayer2Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/" + cardName + ".png"));
+							.setIcon(getImageIcon("/resources/" + cardName + ".png"));
 
 				gui.getGameWindow().getArrayPlayer2Monsters().get(i).setEnabled(true);
 				text = card.toString2();
@@ -1611,14 +1613,14 @@ public class Controller implements ActionListener, WindowListener {
 
 				if (card.getMode() == Mode.DEFENSE) {
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/CardBack.png"));
+							.setIcon(getImageIcon("/resources/CardBack.png"));
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i).setEnabled(true);
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i).setToolTipText("" + card.getMode());
 				}
 
 				else {
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i)
-							.setIcon(new ImageIcon("src/resources/" + cardName + ".png"));
+							.setIcon(getImageIcon("/resources/" + cardName + ".png"));
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i).setEnabled(true);
 					text = card.toString2();
 					gui.getGameWindow().getArrayPlayer1Monsters().get(i)
@@ -1634,7 +1636,7 @@ public class Controller implements ActionListener, WindowListener {
 
 			for (int i = 0; i < board.getActivePlayer().getField().getSpellArea().size() && i < 5; i++) {
 
-				gui.getGameWindow().getArrayPlayer2Spells().get(i).setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getArrayPlayer2Spells().get(i).setIcon(getImageIcon("/resources/CardBack.png"));
 				gui.getGameWindow().getArrayPlayer2Spells().get(i).setEnabled(true);
 				String text = "";
 				SpellCard card = board.getActivePlayer().getField().getSpellArea().get(i);
@@ -1652,7 +1654,7 @@ public class Controller implements ActionListener, WindowListener {
 
 			for (int i = 0; i < board.getOpponentPlayer().getField().getSpellArea().size() && i < 5; i++) {
 
-				gui.getGameWindow().getArrayPlayer1Spells().get(i).setIcon(new ImageIcon("src/resources/CardBack.png"));
+				gui.getGameWindow().getArrayPlayer1Spells().get(i).setIcon(getImageIcon("/resources/CardBack.png"));
 				gui.getGameWindow().getArrayPlayer1Spells().get(i).setEnabled(true);
 				String text = "";
 
@@ -1695,8 +1697,14 @@ public class Controller implements ActionListener, WindowListener {
 		}
 
 		if (e.getSource() instanceof ButtonPlayAgain) {
+
 			gui.getEndWindow().setVisible(false);
-			new Main();
+
+			try {
+				new Main();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 
 		}
 
@@ -1717,8 +1725,7 @@ public class Controller implements ActionListener, WindowListener {
 			for (int i = 0; i < board.getActivePlayer().getField().getHand().size(); i++) {
 
 				String cardName = board.getActivePlayer().getField().getHand().get(i).getName();
-				gui.getHandPlayer1().getArrayCards().get(i)
-						.setIcon(new ImageIcon("src/resources/" + cardName + ".png"));
+				gui.getHandPlayer1().getArrayCards().get(i).setIcon(getImageIcon("/resources/" + cardName + ".png"));
 				gui.getHandPlayer1().getArrayCards().get(i).setEnabled(true);
 
 				String text = "";
@@ -1750,8 +1757,7 @@ public class Controller implements ActionListener, WindowListener {
 			for (int i = 0; i < board.getActivePlayer().getField().getHand().size(); i++) {
 
 				String cardName = board.getActivePlayer().getField().getHand().get(i).getName();
-				gui.getHandPlayer2().getArrayCards().get(i)
-						.setIcon(new ImageIcon("src/resources/" + cardName + ".png"));
+				gui.getHandPlayer2().getArrayCards().get(i).setIcon(getImageIcon("/resources/" + cardName + ".png"));
 				gui.getHandPlayer2().getArrayCards().get(i).setEnabled(true);
 
 				String text = "";
@@ -1913,6 +1919,20 @@ public class Controller implements ActionListener, WindowListener {
 	@Override
 	public void windowOpened(WindowEvent arg0) {
 		// TODO Auto-generated method stub
+
+	}
+
+	public ImageIcon getImageIcon(String path) {
+
+		ImageIcon i = null;
+
+		try {
+			i = new ImageIcon(ImageIO.read(SecondInterface.class.getResourceAsStream(path)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return i;
 
 	}
 

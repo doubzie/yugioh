@@ -5,8 +5,10 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -57,7 +59,7 @@ public class SecondInterface extends JFrame {
 	private JProgressBar progressBarPlayer2;
 	private JProgressBar progressBarPlayer1;
 
-	public SecondInterface() {
+	public SecondInterface() throws IOException {
 
 		setBounds(100, 100, 1301, 1036);
 		setLocation(280, 7);
@@ -113,7 +115,7 @@ public class SecondInterface extends JFrame {
 			panelPlayer1Field.add(spellButton);
 		}
 
-		JLabelWithIcon imageLabel = new JLabelWithIcon("src/resources/YugiProfile.png");
+		JLabelWithIcon imageLabel = new JLabelWithIcon("/resources/YugiProfile.png");
 		imageLabel.setBounds(0, 178, 322, 340);
 		panelPlayer1.add(imageLabel);
 
@@ -141,7 +143,7 @@ public class SecondInterface extends JFrame {
 		btnPlayer1NextPhase.setBounds(1073, 303, 183, 78);
 		panelPlayer1.add(btnPlayer1NextPhase);
 
-		lblPlayer1YourTurn = new JLabelWithIcon("src/resources/YourTurn.jpg");
+		lblPlayer1YourTurn = new JLabelWithIcon("/resources/YourTurn.jpg");
 		lblPlayer1YourTurn.setBounds(1083, 20, 157, 40);
 		panelPlayer1.add(lblPlayer1YourTurn);
 
@@ -165,7 +167,7 @@ public class SecondInterface extends JFrame {
 		panelPlayer1.add(panelPlayer1DeckAndGraveyard);
 
 		btnPlayer1Graveyard = new JButton();
-		btnPlayer1Graveyard.setIcon(new ImageIcon("src/resources/CardBack.png"));
+		btnPlayer1Graveyard.setIcon(getImageIcon("/resources/CardBack.png"));
 		btnPlayer1Graveyard.setOpaque(false);
 		btnPlayer1Graveyard.setContentAreaFilled(false);
 		btnPlayer1Graveyard.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -175,7 +177,7 @@ public class SecondInterface extends JFrame {
 		btnPlayer1Deck.setToolTipText("Player 1 Deck");
 		btnPlayer1Deck.setFont(new Font("Tahoma", Font.PLAIN, 0));
 		btnPlayer1Deck.setForeground(Color.BLACK);
-		btnPlayer1Deck.setIcon(new ImageIcon("src/resources/CardBack.png"));
+		btnPlayer1Deck.setIcon(getImageIcon("/resources/CardBack.png"));
 		btnPlayer1Deck.setOpaque(false);
 		btnPlayer1Deck.setContentAreaFilled(false);
 		panelPlayer1DeckAndGraveyard.add(btnPlayer1Deck);
@@ -223,7 +225,7 @@ public class SecondInterface extends JFrame {
 			panelPlayer2Field.add(monsterButton);
 		}
 
-		JLabelWithIcon kaibaProfile = new JLabelWithIcon("src/resources/KaibaProfile.png");
+		JLabelWithIcon kaibaProfile = new JLabelWithIcon("/resources/KaibaProfile.png");
 		kaibaProfile.setBounds(0, 0, 319, 307);
 		panelPlayer2.add(kaibaProfile);
 
@@ -251,7 +253,7 @@ public class SecondInterface extends JFrame {
 		btnPlayer2NextPhase.setBounds(1067, 117, 183, 78);
 		panelPlayer2.add(btnPlayer2NextPhase);
 
-		lblPlayer2YourTurn = new JLabel(new ImageIcon("src/resources/YourTurn.jpg"));
+		lblPlayer2YourTurn = new JLabelWithIcon("/resources/YourTurn.jpg");
 		lblPlayer2YourTurn.setBounds(1083, 427, 157, 40);
 		panelPlayer2.add(lblPlayer2YourTurn);
 
@@ -282,13 +284,13 @@ public class SecondInterface extends JFrame {
 		btnPlayer2Deck.setToolTipText("Player 2 Deck");
 		btnPlayer2Deck.setForeground(Color.BLACK);
 		btnPlayer2Deck.setFont(new Font("Tahoma", Font.PLAIN, 0));
-		btnPlayer2Deck.setIcon(new ImageIcon("src/resources/CardBack.png"));
+		btnPlayer2Deck.setIcon(getImageIcon("/resources/CardBack.png"));
 		btnPlayer2Deck.setOpaque(false);
 		btnPlayer2Deck.setContentAreaFilled(false);
 		panelPlayer2DeckAndGraveyard.add(btnPlayer2Deck);
 
 		btnPlayer2Graveyard = new JButton();
-		btnPlayer2Graveyard.setIcon(new ImageIcon("src/resources/CardBack.png"));
+		btnPlayer2Graveyard.setIcon(getImageIcon("/resources/CardBack.png"));
 		btnPlayer2Graveyard.setOpaque(false);
 		btnPlayer2Graveyard.setContentAreaFilled(false);
 		btnPlayer2Graveyard.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -417,17 +419,6 @@ public class SecondInterface extends JFrame {
 		return btnPlayer1Hand;
 	}
 
-	/*
-	 * Label with background class
-	 */
-	class JLabelWithIcon extends JLabel {
-
-		public JLabelWithIcon(String path) {
-			super(new ImageIcon(path));
-		}
-
-	}
-
 	public JButton getBtnPlayer1Graveyard() {
 		return btnPlayer1Graveyard;
 	}
@@ -442,6 +433,31 @@ public class SecondInterface extends JFrame {
 
 	public JProgressBar getProgressBarPlayer1() {
 		return progressBarPlayer1;
+	}
+
+	public ImageIcon getImageIcon(String path) {
+
+		ImageIcon i = null;
+
+		try {
+			i = new ImageIcon(ImageIO.read(SecondInterface.class.getResourceAsStream(path)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return i;
+
+	}
+
+	/*
+	 * Label with background class
+	 */
+	class JLabelWithIcon extends JLabel {
+
+		public JLabelWithIcon(String path) throws IOException {
+			super(new ImageIcon(ImageIO.read(SecondInterface.class.getResourceAsStream(path))));
+		}
+
 	}
 
 }
