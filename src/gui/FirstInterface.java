@@ -114,13 +114,13 @@ public class FirstInterface extends JFrame {
 	 */
 	class ContentPanel extends JPanel {
 
-		Image bgimage = null;
+		ImageIcon bgimage = null;
 
 		ContentPanel() {
 
 			MediaTracker mt = new MediaTracker(this);
-			bgimage = Toolkit.getDefaultToolkit().getImage("src/resources/YugiBackground.jpg");
-			mt.addImage(bgimage, 0);
+			bgimage = new ImageIcon(this.getClass().getResource("/resources/YugiBackground.jpg"));
+			mt.addImage(bgimage.getImage(), 0);
 			try {
 				mt.waitForAll();
 			} catch (InterruptedException e) {
@@ -133,7 +133,7 @@ public class FirstInterface extends JFrame {
 		protected void paintComponent(Graphics g) {
 
 			super.paintComponent(g);
-			g.drawImage(bgimage, 1, 1, null);
+			g.drawImage(bgimage.getImage(), 0, 0, getWidth(), getHeight(), null);
 
 		}
 
