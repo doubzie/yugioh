@@ -54,11 +54,9 @@ public class Controller implements ActionListener, WindowListener {
 	ArrayList<MonsterCard> sacrifices = new ArrayList<MonsterCard>(2);
 
 	public Controller(Board board, GUI gui) {
-
 		this.board = board;
 		this.gui = gui;
 		addActionListenersToButtons();
-
 	}
 
 	@Override
@@ -86,8 +84,8 @@ public class Controller implements ActionListener, WindowListener {
 			}
 
 			board.startGame(p1, p2);
-			gui.getStartWindow().setVisible(false);
 
+			gui.getStartWindow().setVisible(false);
 			gui.getGameWindow().setVisible(true);
 
 			gui.getGameWindow().getLblPlayer1Name().setText(p1.getName());
@@ -95,7 +93,6 @@ public class Controller implements ActionListener, WindowListener {
 
 			if (board.getActivePlayer().getName() == p1.getName())
 				disable2Enable1();
-
 			else
 				disable1Enable2();
 
