@@ -16,7 +16,7 @@ public class ThirdInterface extends JFrame {
 
 	public ThirdInterface() {
 
-		setBounds(500, 200, 790, 490);
+		setBounds(500, 200, 790, 460);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
