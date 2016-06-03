@@ -2,8 +2,9 @@ package board.player;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -33,8 +34,8 @@ public class Deck {
 	private static ArrayList<Card> spells;
 	private ArrayList<Card> deck;
 	private static boolean isLoaded;
-	private static String monstersPath = "src/resources/Database-Monsters.csv";
-	private static String spellsPath = "src/resources/Database-Spells.csv";
+	private static String monstersPath = "/resources/Database-Monsters.csv";
+	private static String spellsPath = "/resources/Database-Spells.csv";
 	private boolean hasMonstersLoaded = false;
 	private Scanner sc;
 	private static BufferedReader br;
@@ -160,8 +161,9 @@ public class Deck {
 
 		ArrayList<String> cardsStringArray = new ArrayList<String>();
 		String currentLine = "";
-		FileReader fileReader = new FileReader(path);
-		br = new BufferedReader(fileReader);
+		
+		InputStream i = Deck.class.getResourceAsStream(path);
+		br = new BufferedReader(new InputStreamReader(i));
 
 		while ((currentLine = br.readLine()) != null)
 			cardsStringArray.add(currentLine);
