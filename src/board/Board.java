@@ -6,116 +6,107 @@ import cards.Card;
 
 public class Board {
 
-	private Player activePlayer;
-	private Player opponentPlayer;
-	private Player winner;
+  private Player activePlayer;
+  private Player opponentPlayer;
+  private Player winner;
 
-	private boolean isMonsterAdded = false;
+  private boolean isMonsterAdded = false;
 
-	public Board() {
-		Card.setBoard(this);
-	}
+  public Board() {
+    Card.setBoard(this);
+  }
 
-	public void whoStarts(Player p1, Player p2) {
+  public void whoStarts(Player p1, Player p2) {
+    int whoStarts = (int) (Math.ceil(Math.random() * 2));
 
-		int whoStarts = (int) (Math.ceil(Math.random() * 2));
+    if (whoStarts == 1) {
+      activePlayer = p1;
+      opponentPlayer = p2;
+    } else {
+      activePlayer = p2;
+      opponentPlayer = p1;
+    }
+  }
 
-		if (whoStarts == 1) {
-			activePlayer = p1;
-			opponentPlayer = p2;
-		} else {
-			activePlayer = p2;
-			opponentPlayer = p1;
-		}
+  public void startGame(Player p1, Player p2) {
+    p1.getField().addNCardsToHand(5);
+    p2.getField().addNCardsToHand(5);
+    whoStarts(p1, p2);
+    activePlayer.getField().addCardToHand();
+  }
 
-	}
+  public void nextPlayer() {
+    if (winner == null) {
+      for (
+        int i = 0;
+        i < activePlayer.getField().getMonstersArea().size();
+        i++
+      ) if (
+        activePlayer.getField().getMonstersArea().get(i) != null
+      ) activePlayer.getField().getMonstersArea().get(i).setHasAttacked(false);
 
-	public void startGame(Player p1, Player p2) {
+      for (
+        int i = 0;
+        i < activePlayer.getField().getMonstersArea().size();
+        i++
+      ) if (
+        activePlayer.getField().getMonstersArea().get(i) != null
+      ) activePlayer.getField().getMonstersArea().get(i).setModeSwitched(false);
 
-		p1.getField().addNCardsToHand(5);
-		p2.getField().addNCardsToHand(5);
-		whoStarts(p1, p2);
-		activePlayer.getField().addCardToHand();
+      Player tmp = activePlayer;
+      activePlayer = opponentPlayer;
+      opponentPlayer = tmp;
 
-	}
+      isMonsterAdded = false;
 
-	public void nextPlayer() {
+      activePlayer.getField().setPhase(Phase.MAIN1);
+      activePlayer.getField().addCardToHand();
+    }
+  }
 
-		if (winner == null) {
+  public void assignWinner() {
+    if (activePlayer.getLifePoints() <= 0) winner = opponentPlayer;
 
-			for (int i = 0; i < activePlayer.getField().getMonstersArea().size(); i++)
-				if (activePlayer.getField().getMonstersArea().get(i) != null)
-					activePlayer.getField().getMonstersArea().get(i).setHasAttacked(false);
+    if (opponentPlayer.getLifePoints() <= 0) winner = activePlayer;
+  }
 
-			for (int i = 0; i < activePlayer.getField().getMonstersArea().size(); i++)
-				if (activePlayer.getField().getMonstersArea().get(i) != null)
-					activePlayer.getField().getMonstersArea().get(i).setModeSwitched(false);
+  public void endGame() {
+    @SuppressWarnings("unused")
+    Player loser;
+    if (winner == activePlayer) loser = opponentPlayer; else loser =
+      activePlayer;
+  }
 
-			Player tmp = activePlayer;
-			activePlayer = opponentPlayer;
-			opponentPlayer = tmp;
+  public Player getActivePlayer() {
+    return activePlayer;
+  }
 
-			isMonsterAdded = false;
+  public Player getOpponentPlayer() {
+    return opponentPlayer;
+  }
 
-			activePlayer.getField().setPhase(Phase.MAIN1);
-			activePlayer.getField().addCardToHand();
+  public Player getWinner() {
+    return winner;
+  }
 
-		}
+  public void setActivePlayer(Player activePlayer) {
+    this.activePlayer = activePlayer;
+  }
 
-	}
+  public void setOpponentPlayer(Player opponentPlayer) {
+    this.opponentPlayer = opponentPlayer;
+  }
 
-	public void assignWinner() {
+  public void setWinner(Player winner) {
+    this.winner = winner;
+    endGame();
+  }
 
-		if (activePlayer.getLifePoints() <= 0)
-			winner = opponentPlayer;
+  public boolean isMonsterAdded() {
+    return isMonsterAdded;
+  }
 
-		if (opponentPlayer.getLifePoints() <= 0)
-			winner = activePlayer;
-
-	}
-
-	public void endGame() {
-
-		@SuppressWarnings("unused")
-		Player loser;
-		if (winner == activePlayer)
-			loser = opponentPlayer;
-		else
-			loser = activePlayer;
-
-	}
-
-	public Player getActivePlayer() {
-		return activePlayer;
-	}
-
-	public Player getOpponentPlayer() {
-		return opponentPlayer;
-	}
-
-	public Player getWinner() {
-		return winner;
-	}
-
-	public void setActivePlayer(Player activePlayer) {
-		this.activePlayer = activePlayer;
-	}
-
-	public void setOpponentPlayer(Player opponentPlayer) {
-		this.opponentPlayer = opponentPlayer;
-	}
-
-	public void setWinner(Player winner) {
-		this.winner = winner;
-		endGame();
-	}
-
-	public boolean isMonsterAdded() {
-		return isMonsterAdded;
-	}
-
-	public void setMonsterAdded(boolean isMonsterAdded) {
-		this.isMonsterAdded = isMonsterAdded;
-	}
-
+  public void setMonsterAdded(boolean isMonsterAdded) {
+    this.isMonsterAdded = isMonsterAdded;
+  }
 }

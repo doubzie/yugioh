@@ -4,43 +4,40 @@ import java.io.IOException;
 
 public class GUI {
 
-	private FirstInterface startWindow;
-	private SecondInterface gameWindow;
-	private ThirdInterface endWindow;
-	private PlayerHand handPlayer1;
-	private PlayerHand handPlayer2;
+  private FirstInterface startWindow;
+  private SecondInterface gameWindow;
+  private ThirdInterface endWindow;
+  private PlayerHand handPlayer1;
+  private PlayerHand handPlayer2;
 
-	public GUI() throws IOException {
+  public GUI() throws IOException {
+    startWindow = new FirstInterface();
+    gameWindow = new SecondInterface();
+    endWindow = new ThirdInterface();
 
-		startWindow = new FirstInterface();
-		gameWindow = new SecondInterface();
-		endWindow = new ThirdInterface();
+    handPlayer1 = new PlayerHand();
+    handPlayer2 = new PlayerHand();
 
-		handPlayer1 = new PlayerHand();
-		handPlayer2 = new PlayerHand();
+    startWindow.setVisible(true);
+  }
 
-		startWindow.setVisible(true);
+  public FirstInterface getStartWindow() {
+    return startWindow;
+  }
 
-	}
+  public SecondInterface getGameWindow() {
+    return gameWindow;
+  }
 
-	public FirstInterface getStartWindow() {
-		return startWindow;
-	}
+  public ThirdInterface getEndWindow() {
+    return endWindow;
+  }
 
-	public SecondInterface getGameWindow() {
-		return gameWindow;
-	}
+  public PlayerHand getHandPlayer1() {
+    return handPlayer1;
+  }
 
-	public ThirdInterface getEndWindow() {
-		return endWindow;
-	}
-
-	public PlayerHand getHandPlayer1() {
-		return handPlayer1;
-	}
-
-	public PlayerHand getHandPlayer2() {
-		return handPlayer2;
-	}
-
+  public PlayerHand getHandPlayer2() {
+    return handPlayer2;
+  }
 }

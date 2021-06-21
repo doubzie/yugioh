@@ -5,16 +5,15 @@ import cards.MonsterCard;
 
 public abstract class SpellCard extends Card {
 
-	public SpellCard(String name, String description) {
-		super(name, description);
-	}
+  public SpellCard(String name, String description) {
+    super(name, description);
+  }
 
-	@Override
-	public String toString() {
-		return super.toString() + ", " + getDescription() + "\n";
-	}
+  @Override
+  public String toString() {
+    return super.toString() + ", " + getDescription() + "\n";
+  }
 
-	@Override
-	abstract public void action(MonsterCard monster);
-
+  @Override
+  public abstract void action(MonsterCard monster);
 }

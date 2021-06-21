@@ -3,12 +3,9 @@ package exceptions;
 @SuppressWarnings("serial")
 public class NoSpaceException extends RuntimeException {
 
-	public NoSpaceException() {
+  public NoSpaceException() {}
 
-	}
-
-	public NoSpaceException(String arg0) {
-		super(arg0);
-	}
-
+  public NoSpaceException(String arg0) {
+    super(arg0);
+  }
 }

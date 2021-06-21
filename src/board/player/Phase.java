@@ -1,5 +1,7 @@
 package board.player;
 
 public enum Phase {
-	MAIN1, BATTLE, MAIN2
+  MAIN1,
+  BATTLE,
+  MAIN2,
 }
